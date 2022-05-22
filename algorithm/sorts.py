@@ -1,5 +1,6 @@
 
 import random
+from timeit import timeit
 
 
 def bubbleSort(a):
@@ -41,6 +42,12 @@ if __name__=="__main__":
     # a = [9,7,8,62,5,4,3,2,1]
     a = prepareRandomList()
     print("sort started.")
-    insertSort(a)
+    time = timeit("insertSort(a)", 
+        setup="from __main__ import insertSort; \
+            from __main__ import prepareRandomList;\
+            a = prepareRandomList()",
+        number= 100000)
+    # insertSort(a)
     printList(a)
+    print("time cost: %f" % time)
     print("sort finished.")
