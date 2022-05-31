@@ -1,5 +1,5 @@
 import sys
-
+from data_struct import Queue
 from data_struct import Stack
 
 
@@ -35,7 +35,15 @@ def baseConverter(decimal, base):
 
     return binString
 
+def testcase_Queue():
+    queue = Queue()
+    queue.enqueue("11")
+    queue.enqueue("22")
+    while not queue.is_empty():
+        print(queue.dequeue())
+
 
 if __name__ == "__main__":
     print(divideBy2(64))
     print(baseConverter(256, 16))
+    testcase_Queue()
